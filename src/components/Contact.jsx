@@ -59,7 +59,7 @@ function Contact() {
   };
 
   return (
-    <div className="container">
+    <div className="container" data-testid="contact-form">
       <form onSubmit={handleSubmit}>
         <div className="form-display"></div>
         <div className="form-divider">
@@ -142,7 +142,7 @@ function Contact() {
             <div className="form-row-tiger">
               <div></div>
               {tigerType ? (
-                <p className="form-row">
+                <p>
                   Type of Tiger<input placeholder="type"></input>
                 </p>
               ) : (
