@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Animal from "./Animal";
+import "../App.css";
 
 function Contact() {
   const initialValues = { email: "", password: "" };
@@ -19,7 +20,6 @@ function Contact() {
   };
 
   useEffect(() => {
-    console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log(formValues);
     }
@@ -86,10 +86,7 @@ function Contact() {
       </form>
 
       {Object.keys(formErrors).length === 0 && isSubmit ? (
-        <div>
-          You have successfully Sign-in with {formValues.email}{" "}
-          {/* {JSON.stringify(formValues, undefined, 2)} */}
-        </div>
+        <div>You have successfully Sign-in with {formValues.email} </div>
       ) : null}
     </div>
   );

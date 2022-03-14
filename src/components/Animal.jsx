@@ -1,51 +1,40 @@
 import React, { useState } from "react";
 
 function Animal() {
-  //   const [animal, setAnimal] = useState("");
-  const [isCheck, setIsCheck] = useState(false);
+  const [isCheck, setIsCheck] = useState([]);
+  const [isTiger, setIsTiger] = useState(false);
 
   const handleInputChange = (evt) => {
-    console.log(evt.target.name);
-    setIsCheck(evt.target.name);
+    console.log(evt.target.value);
+    setIsCheck([...isCheck, evt.target.value]);
+  };
+
+  const handleTiger = (evt) => {
+    setIsTiger(!isTiger);
   };
 
   return (
     <div>
       <form>
-        {/* <label>
-          Animals :
-          <select
-            onChange={(evt) => {
-              const selectedAnimal = evt.target.value;
-              setAnimal(selectedAnimal);
-            }}
-          >
-            <option value="Bear">Bear</option>
-            <option value="Tiger">Tiger</option>
-            <option value="Snake">Snake</option>
-            <option value="Donkey">Donkey</option>
-          </select>
-        </label> */}
-        <h4>Animal :</h4>
-        <input name="Bear" type="checkbox" onChange={handleInputChange} />
+        <label>Animal :</label>
+        <input value="Bear" type="checkbox" onChange={handleInputChange} />
         Bear
-        <input name="Tiger" type="checkbox" onChange={handleInputChange} />
+        <input value="Tiger" type="checkbox" onChange={handleTiger} />
         Tiger
-        <input name="Snake" type="checkbox" onChange={handleInputChange} />
+        <input value="Snake" type="checkbox" onChange={handleInputChange} />
         Snake
-        <input name="Donkey" type="checkbox" onChange={handleInputChange} />
+        <input value="Donkey" type="checkbox" onChange={handleInputChange} />
         Donkey
+        <div>
+          {isTiger ? (
+            <p>
+              Type of Tiger<input placeholder="type"></input>
+            </p>
+          ) : (
+            ""
+          )}
+        </div>
       </form>
-      <div>
-        {`${isCheck == "Tiger" ? true : false}`}
-        {/* {isCheck.includes === "Tiger" ? (
-          <p>
-            Type of Tiger <input placeholder="type"></input>
-          </p>
-        ) : (
-          ""
-        )} */}
-      </div>
     </div>
   );
 }
