@@ -9,7 +9,6 @@ function Animal() {
     setIsCheck(evt.target.name);
   };
 
-
   return (
     <div>
       <form>
@@ -38,14 +37,14 @@ function Animal() {
         Donkey
       </form>
       <div>
-
-        {isCheck.tiger ? (
+        {`${isCheck == "Tiger" ? true : false}`}
+        {/* {isCheck.includes === "Tiger" ? (
           <p>
-            Type of {isCheck.tiger} <input placeholder="type"></input>
+            Type of Tiger <input placeholder="type"></input>
           </p>
         ) : (
           ""
-        )}
+        )} */}
       </div>
     </div>
   );
