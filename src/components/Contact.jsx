@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Animal from "./Animal";
 import "../App.css";
 
 function Contact() {
@@ -7,6 +6,14 @@ function Contact() {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+
+  const [selectAnimals, setSelectAnimals] = useState({
+    bear: false,
+    tiger: false,
+    snake: false,
+    donkey: false,
+  });
+  const [tigerType, setTigerType] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,6 +45,14 @@ function Contact() {
       errors.password = "Password must be more than 8 characters";
     }
     return errors;
+  };
+
+  const handleOnChange = (animal) => {
+    let updatedSelectAnimals = selectAnimals;
+    updatedSelectAnimals[animal] = !updatedSelectAnimals[animal];
+
+    setSelectAnimals(updatedSelectAnimals);
+    setTigerType(updatedSelectAnimals.tiger);
   };
 
   return (
@@ -80,7 +95,52 @@ function Contact() {
               </select>
             </label>
           </div>
-          <Animal />
+          <div>
+            <label>Animal : </label>
+            <label>
+              <input
+                type="checkbox"
+                label="bear"
+                value={selectAnimals.bear}
+                onChange={(e) => handleOnChange(e.target.getAttribute("label"))}
+              />{" "}
+              Bear
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                label="tiger"
+                value={selectAnimals.tiger}
+                onChange={(e) => handleOnChange(e.target.getAttribute("label"))}
+              />{" "}
+              Tiger
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                label="snake"
+                value={selectAnimals.snake}
+                onChange={(e) => handleOnChange(e.target.getAttribute("label"))}
+              />{" "}
+              Snake
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                label="donkey"
+                value={selectAnimals.donkey}
+                onChange={(e) => handleOnChange(e.target.getAttribute("label"))}
+              />{" "}
+              Donkey
+            </label>
+            {tigerType ? (
+              <p>
+                Type of Tiger<input placeholder="type"></input>
+              </p>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
         <button>Submit</button>
       </form>
