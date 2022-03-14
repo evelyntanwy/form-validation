@@ -35,6 +35,13 @@
   color: var(--theme-light);
 }
 
+label {
+  font-weight: normal;
+}
+
+input {
+  font-weight: bold;
+}
 .container {
   display: inline-block;
 }
@@ -42,6 +49,14 @@
 .form-row {
   display: flex;
   justify-content: center;
+  gap: 10px 20px; /* row-gap column gap */
+  column-gap: 20px; /* email and textarea */
+  margin-top: 30px;
+}
+.form-row-tiger p {
+  display: inline-table;
+  position: fixed;
+  align-items: flex-start;
   gap: 10px 20px; /* row-gap column gap */
   column-gap: 20px; /* email and textarea */
   margin-top: 30px;

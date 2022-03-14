@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 
 function Contact() {
-  const initialValues = { email: "", password: "" };
+  const initialValues = { email: "", password: "", colour: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -44,6 +44,9 @@ function Contact() {
     } else if (values.password.length < 8) {
       errors.password = "Password must be more than 8 characters";
     }
+    // if (values.colour === false) {
+    //   errors.colour = "Please select a colour";
+    // }
     return errors;
   };
 
@@ -97,6 +100,7 @@ function Contact() {
               </select>
             </label>
           </div>
+          <p>{formErrors.colour}</p>
           <div className="form-row">
             <label>Animal : </label>
             <label>
@@ -135,8 +139,8 @@ function Contact() {
               />{" "}
               Donkey
             </label>
-            <br />
-            <div className="form-row">
+            <div className="form-row-tiger">
+              <div></div>
               {tigerType ? (
                 <p className="form-row">
                   Type of Tiger<input placeholder="type"></input>
