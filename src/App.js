@@ -4,7 +4,7 @@ import Contact from "./components/Contact";
 function App() {
   return (
     <div className="App">
-      <h1>Springload Contact Form</h1>
+      <h1 className="header-title">Springload Contact Form</h1>
 
       <Contact />
     </div>

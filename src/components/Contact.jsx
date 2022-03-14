@@ -58,11 +58,12 @@ function Contact() {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <div className="ui divider"></div>
-        <div className="ui form">
-          <div className="field">
-            <label>Email</label>
+        <div className="form-display"></div>
+        <div className="form-divider">
+          <div className="form-row">
+            <label>Email :</label>
             <input
+              className="form-input"
               type="text"
               name="email"
               placeholder="Email"
@@ -71,9 +72,10 @@ function Contact() {
             />
           </div>
           <p>{formErrors.email}</p>
-          <div className="field">
-            <label>Password</label>
+          <div className="form-row">
+            <label>Password : </label>
             <input
+              className="form-input"
               type="password"
               name="password"
               placeholder="Password"
@@ -83,9 +85,9 @@ function Contact() {
           </div>
           <p>{formErrors.password}</p>
           <div>
-            <label>
+            <label className="form-row">
               Colour :
-              <select>
+              <select className="form-input">
                 <option defaultChecked="blue">Please select a colour</option>
                 <option value="blue">Blue</option>
                 <option value="green">Green</option>
@@ -95,7 +97,7 @@ function Contact() {
               </select>
             </label>
           </div>
-          <div>
+          <div className="form-row">
             <label>Animal : </label>
             <label>
               <input
@@ -133,21 +135,25 @@ function Contact() {
               />{" "}
               Donkey
             </label>
-            {tigerType ? (
-              <p>
-                Type of Tiger<input placeholder="type"></input>
-              </p>
-            ) : (
-              ""
-            )}
+            <br />
+            <div className="form-row">
+              {tigerType ? (
+                <p className="form-row">
+                  Type of Tiger<input placeholder="type"></input>
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </div>
-        <button>Submit</button>
+        <button className="button">Submit</button>
       </form>
-
-      {Object.keys(formErrors).length === 0 && isSubmit ? (
-        <div>You have successfully Sign-in with {formValues.email} </div>
-      ) : null}
+      <div className="form-row">
+        {Object.keys(formErrors).length === 0 && isSubmit ? (
+          <div>You have successfully Sign-in with {formValues.email} </div>
+        ) : null}
+      </div>
     </div>
   );
 }

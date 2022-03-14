@@ -1,4 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
 .App {
+  font-family: "Lato", sans-serif;
   text-align: center;
 }
 
@@ -28,13 +31,54 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-title {
+  color: var(--theme-light);
+}
+
+.container {
+  display: inline-block;
+}
+
+.form-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px 20px; /* row-gap column gap */
+  column-gap: 20px; /* email and textarea */
+  margin-top: 30px;
+}
+
+.form-input {
+  width: 200px;
+  height: 20px;
+}
+
+.button {
+  align-items: center;
+  color: #fff;
+  background-color: #527a00;
+  background-color: var(--fabric-theme-base, #527a00);
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 5%), 0 0 0 2px transparent;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-family: Lato, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  height: 34px;
+  line-height: 1.125;
+  padding: 0 24px;
+  position: relative;
+  user-select: none;
+  vertical-align: bottom;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+:root {
+  --theme-base: #007400;
+  --theme-light: #1e901c;
+  --theme-lighter: #3cab38;
 }
 
 /* .container {
