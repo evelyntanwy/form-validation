@@ -10,11 +10,12 @@ function Contact() {
 
   const [selectAnimals, setSelectAnimals] = useState({
     bear: false,
-    tiger: false,
     snake: false,
     donkey: false,
+    tiger: false,
   });
   const [tigerType, setTigerType] = useState(false);
+  const [newTigerType, setNewTigerType] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,6 +30,10 @@ function Contact() {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+  };
+
+  const handleTigerType = (e) => {
+    setNewTigerType(e.target.value);
   };
 
   useEffect(() => {
@@ -130,15 +135,6 @@ function Contact() {
             <label>
               <input
                 type="checkbox"
-                label="tiger"
-                value={selectAnimals.tiger}
-                onChange={(e) => handleOnChange(e.target.getAttribute("label"))}
-              />{" "}
-              Tiger
-            </label>
-            <label>
-              <input
-                type="checkbox"
                 label="snake"
                 value={selectAnimals.snake}
                 onChange={(e) => handleOnChange(e.target.getAttribute("label"))}
@@ -154,12 +150,21 @@ function Contact() {
               />{" "}
               Donkey
             </label>
+            <label>
+              <input
+                type="checkbox"
+                label="tiger"
+                value={selectAnimals.tiger}
+                onChange={(e) => handleOnChange(e.target.getAttribute("label"))}
+              />{" "}
+              Tiger
+            </label>
             <div className="form-row-tiger">
               <div></div>
               {tigerType ? (
                 <p>
                   Type of Tiger : {""}
-                  <input placeholder="type"></input>
+                  <input placeholder="type" onChange={handleTigerType}></input>
                 </p>
               ) : (
                 ""
@@ -179,6 +184,7 @@ function Contact() {
           </div>
         ) : null}
         {finalAnimal}
+        {newTigerType ? "- " + newTigerType : ""}
       </div>
     </div>
   );

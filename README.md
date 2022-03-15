@@ -9,6 +9,10 @@ npm install
 npm start
 ```
 
+## Deployment
+
+Open https://evelyntanwy.github.io/form-validation/ to view on your browser
+
 ## Available Scripts
 
 In the project directory, you can run:
