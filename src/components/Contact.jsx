@@ -184,7 +184,7 @@ function Contact() {
           </div>
         ) : null}
         {finalAnimal}
-        {newTigerType ? "- " + newTigerType : ""}
+        {newTigerType ? " - " + newTigerType : ""}
       </div>
     </div>
   );
