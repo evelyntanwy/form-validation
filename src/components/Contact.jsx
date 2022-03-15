@@ -155,7 +155,7 @@ function Contact() {
       <div className="form-row">
         {Object.keys(formErrors).length === 0 && isSubmit ? (
           <div>
-            Thank you have submitted with <em>{formValues.email}</em>
+            Thank you! You have submitted with <em>{formValues.email}</em>
             {}
           </div>
         ) : null}
