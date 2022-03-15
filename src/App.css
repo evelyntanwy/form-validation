@@ -5,17 +5,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -37,32 +26,32 @@
 
 label {
   font-weight: normal;
+  margin-right: 5px;
+  padding-right: 10px;
+}
+
+select {
+  margin-left: 10px;
 }
 
 input {
   font-weight: bold;
 }
+
 .container {
   display: inline-block;
 }
 
 .form-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px 20px; /* row-gap column gap */
-  column-gap: 20px; /* email and textarea */
-  margin-top: 30px;
-}
-.form-row-tiger p {
   display: inline-table;
-  position: fixed;
-  align-items: flex-start;
+  justify-content: center;
   gap: 10px 20px; /* row-gap column gap */
   column-gap: 20px; /* email and textarea */
   margin-top: 30px;
 }
 
 .form-input {
+  display: inline-table;
   width: 200px;
   height: 20px;
 }
@@ -96,18 +85,18 @@ input {
   --theme-lighter: #3cab38;
 }
 
-/* .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container {
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
   height: 100vh;
   max-width: 500px;
   width: 100%;
 }
 .container > form {
-  width: 70%;
+  /* width: 70%; */
   border: 1px solid #dfdfdf;
   padding: 20px;
   border-radius: 5px;
   background: #fff;
-} */
+}

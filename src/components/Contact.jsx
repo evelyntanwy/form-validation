@@ -44,9 +44,9 @@ function Contact() {
     } else if (values.password.length < 8) {
       errors.password = "Password must be more than 8 characters";
     }
-    // if (values.colour === false) {
-    //   errors.colour = "Please select a colour";
-    // }
+    if (values.colour === false) {
+      errors.colour = "Please select a colour";
+    }
     return errors;
   };
 
@@ -61,7 +61,6 @@ function Contact() {
   return (
     <div className="container" data-testid="contact-form">
       <form onSubmit={handleSubmit}>
-        <div className="form-display"></div>
         <div className="form-divider">
           <div className="form-row">
             <label>Email :</label>
@@ -76,7 +75,7 @@ function Contact() {
           </div>
           <p>{formErrors.email}</p>
           <div className="form-row">
-            <label>Password : </label>
+            <label className="form-row-pw">Password : </label>
             <input
               className="form-input"
               type="password"
@@ -155,7 +154,10 @@ function Contact() {
       </form>
       <div className="form-row">
         {Object.keys(formErrors).length === 0 && isSubmit ? (
-          <div>You have successfully Sign-in with {formValues.email} </div>
+          <div>
+            Thank you have submitted with <em>{formValues.email}</em>
+            {}
+          </div>
         ) : null}
       </div>
     </div>
