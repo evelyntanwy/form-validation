@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 
 function Contact() {
-  const initialValues = { email: "", password: "", colour: "" };
+  const initialValues = { email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
+  const [formColour, setFormColour] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
 
@@ -20,6 +21,10 @@ function Contact() {
     setFormValues({ ...formValues, [name]: value });
   };
 
+  const handleChangeColour = (e) => {
+    setFormColour(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
@@ -31,6 +36,7 @@ function Contact() {
       console.log(formValues);
     }
   }, [formErrors]);
+
   const validate = (values) => {
     const errors = {};
     const keys = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -44,9 +50,6 @@ function Contact() {
     } else if (values.password.length < 8) {
       errors.password = "Password must be more than 8 characters";
     }
-    if (values.colour === false) {
-      errors.colour = "Please select a colour";
-    }
     return errors;
   };
 
@@ -57,6 +60,15 @@ function Contact() {
     setSelectAnimals(updatedSelectAnimals);
     setTigerType(updatedSelectAnimals.tiger);
   };
+
+  let finalAnimal = "";
+
+  for (const [key, value] of Object.entries(selectAnimals)) {
+    if (value) {
+      const textToAdd = finalAnimal === "" ? key : ", " + key;
+      finalAnimal += textToAdd;
+    }
+  }
 
   return (
     <div className="container" data-testid="contact-form">
@@ -89,13 +101,17 @@ function Contact() {
           <div>
             <label className="form-row">
               Colour :
-              <select className="form-input">
+              <select
+                className="form-input"
+                value={formColour}
+                onChange={handleChangeColour}
+              >
                 <option defaultChecked="blue">Please select a colour</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
-                <option value="red">Red</option>
-                <option value="black">Black</option>
-                <option value="brown">Brown</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Red">Red</option>
+                <option value="Black">Black</option>
+                <option value="Brown">Brown</option>
               </select>
             </label>
           </div>
@@ -142,7 +158,8 @@ function Contact() {
               <div></div>
               {tigerType ? (
                 <p>
-                  Type of Tiger<input placeholder="type"></input>
+                  Type of Tiger : {""}
+                  <input placeholder="type"></input>
                 </p>
               ) : (
                 ""
@@ -155,10 +172,13 @@ function Contact() {
       <div className="form-row">
         {Object.keys(formErrors).length === 0 && isSubmit ? (
           <div>
-            Thank you! You have submitted with <em>{formValues.email}</em>
-            {}
+            Thank you! You have submitted with <em>{formValues.email}</em>{" "}
+            <br />
+            Colour : {formColour}
+            <br /> Animal(s) :
           </div>
         ) : null}
+        {finalAnimal}
       </div>
     </div>
   );
